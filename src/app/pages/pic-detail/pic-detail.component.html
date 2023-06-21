@@ -1,0 +1,17 @@
+<div class="container-md">
+  <div class="row py-5" *ngIf="pic$">
+    <div class="col-6">
+      <img [src]="'http://localhost:8080/files/' + pic$.id" alt="{{ pic$.title  }}" class="img-fluid">
+    </div>
+    <div class="col-6">
+      <h2 class="fs-1 mb-5">{{ pic$.title }}</h2>
+      <p class="fs-4 mb-5">{{ pic$.description}}</p>
+      <ul class="list-unstyled d-flex gap-3">
+        <li *ngFor="let category of pic$.categories" class="category_tag">
+          {{ category.name | hastagPipe }}
+        </li>
+      </ul>
+      <button class="mt-5 btn btn-dark rounded-5" (click)="navigateBack()">Back to Pictures</button>
+    </div>
+  </div>
+</div>

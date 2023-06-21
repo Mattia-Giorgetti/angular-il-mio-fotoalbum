@@ -1,0 +1,22 @@
+.src-btn {
+  background-color: rgb(87, 56, 201);
+  padding: 0.8rem 1.5rem;
+  color: aliceblue;border-radius: 25px;
+  border: none;
+
+
+}
+input {
+  padding: 0.8rem;
+  border-radius: 25px;
+  border: 1px solid rgb(87, 56, 201);
+  outline: none;
+  width: 30%;
+  font-size: 1.1rem;
+  text-indent: 0.5rem;
+
+  &::placeholder {
+    font-style: italic;
+  }
+
+}

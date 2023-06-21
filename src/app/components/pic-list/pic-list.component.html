@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="py-5" *ngIf="!errorMsg && !isLoading">
+    <form [formGroup]="searchBar" (ngSubmit)="onSearchPics()">
+      <div class="searchbar d-flex justify-content-center align-items-center gap-4">
+          <input type="search" placeholder="search for pics" formControlName="queryString">
+          <button class="src-btn" type="submit">Search</button>
+      </div>
+      </form>
+  </div>
+  <div class="text-center" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let picture of pictures">
+      <app-pic-card [pic]="picture" *ngIf="!isLoading"></app-pic-card>
+  </div>
+  <div *ngIf="pictures.length === 0 && !isLoading && !errorMsg">
+    <h3 class="text-center fs-5 text-secondary">No Pics found</h3>
+  </div>
+  <div class="alert alert-danger text-center w-50 m-auto" *ngIf="errorMsg">
+    {{ errorMsg }}
+  </div>
+</div>

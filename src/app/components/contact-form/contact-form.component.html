@@ -1,0 +1,15 @@
+<form class="w-50 m-auto" [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
+  <div class="py-5" *ngIf="message" class="alert" [ngClass]="{'alert-success' : success, 'alert-danger' : !success}">{{ message }}</div>
+  <div class="mb-4">
+    <label for="mail" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="mail" placeholder="Insert your email" formControlName="mail">
+    <div class="invalid-feedback" *ngIf="!contactForm.get('mail')?.valid && contactForm.get('mail')?.touched">Please insert a valid email</div>
+  </div>
+  <div class="mb-4">
+    <label for="message" class="form-label">Message</label>
+    <textarea class="form-control" id="message" rows="4" placeholder="Write a message" formControlName="message"></textarea>
+  </div>
+  <div class="invalid-feedback" *ngIf="!contactForm.get('mail')?.valid && contactForm.get('mail')?.touched">Please insert a valid message</div>
+  <button type="submit" class="form-btn" [disabled]="!contactForm.valid">Send</button>
+  <button type="button" class="form-btn bg-danger ms-2" (click)="onCancel()">Cancel</button>
+</form>

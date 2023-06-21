@@ -1,0 +1,14 @@
+.header {
+  background-color: rgb(87, 56, 201);
+  padding: 1rem;
+  color: aliceblue;
+
+  li:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
+.my-active {
+  color: orange;
+  font-weight: 500;
+}
